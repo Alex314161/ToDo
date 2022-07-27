@@ -10,8 +10,10 @@ function App() {
     const [inputValue, setInputValue] = useState()
 
     let addTask = () => {
-        setItem([...item,inputValue]);
-        setInputValue('');
+        if (inputValue){
+            setItem([...item,inputValue]);
+            setInputValue('');
+        }
     }
 
     return (
