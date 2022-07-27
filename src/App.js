@@ -11,16 +11,26 @@ function App() {
     const [completeItem, setCompleteItem] = useState([]);
 
     let addTask = () => {
+        // Не использовать поиск по документу, использовать для value - hook useState 
+        // (задавать значение value-inputValue, onChange=(e) => setInputValue(e.target.value))
         let seq = document.getElementById("task").value;
+        
         if (seq){
+            // лишнее действие
             let copyItem = Array.from(item);
             copyItem.push(seq);
+            
+            // setItem([...item, seq]) - spread - почитай
             setItem(copyItem);
+            
+            // тут setInputValue('')
             document.getElementById("task").value='';
         }
     }
 
+    // элементы нужно выводить в самой компоненте, а компоненту BLock передавать массив item
     let taskElement = item.map(elem => <Taskitem message={elem} arr={item} delete={setItem} completeTask={completeItem} complete={setCompleteItem}/>);
+    // аналогично    
     let completeElement = completeItem.map(elem => <CompleteItem message={elem}/>);
 
   return (
@@ -33,6 +43,8 @@ function App() {
 
               <main className="content">
                   <Block name="Active" task={taskElement} />
+                      
+                  // нету детей, закрывай тег <div />
                   <div className="line"></div>
                   <Complete name="Complete" completeElement={completeElement}/>
               </main>
