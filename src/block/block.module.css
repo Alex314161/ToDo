@@ -1,0 +1,10 @@
+.block{
+    height: 100%;
+    width: 45%;
+}
+
+.block h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+

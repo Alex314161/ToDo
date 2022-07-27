@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    max-width: 1400px;
+    height: 100vh;
+    margin: 0 auto;
+    background-color: aliceblue;
+    border: 1px solid black;
+}
+
+.taskarea {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    border-bottom: 1px solid black;
+    background-color: gray;
+}
+
+.taskarea textarea {
+    width: 60%;
+    text-align: center;
+    resize: none;
+}
+
+.taskarea button {
+    width: 35px;
+    height: 35px;
+}
+
+.content{
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    margin: 20px 0px;
+}
+
+.line{
+    border-right: 3px solid black;
+    height: 100%;
+}
