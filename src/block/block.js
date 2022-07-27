@@ -3,7 +3,7 @@ import styles from "./block.module.css"
 import Taskitem from "./items/item";
 
 function Block (props){
-    let taskElement = props.item.map(elem => <Taskitem message={elem} arr={props.item} func={props.func}/>);
+    let taskElement = props.item.map(elem => <Taskitem message={elem} item={props.item} completeItem={props.completeItem} func={props.func} funcAdd={props.funcAdd}/>);
 
     return(
         <div className={styles.block}>

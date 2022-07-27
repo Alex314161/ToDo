@@ -10,8 +10,7 @@ function App() {
     const [inputValue, setInputValue] = useState()
 
     let addTask = () => {
-        let seq = inputValue;
-        setItem([...item,seq]);
+        setItem([...item,inputValue]);
         setInputValue('');
     }
 
@@ -19,14 +18,14 @@ function App() {
         <div className="container">
             <div className="App">
                 <header className="taskarea">
-                    <textarea placeholder="Введите новую задачу" onChange={e => setInputValue(e.target.value)}></textarea>
+                    <textarea placeholder="Введите новую задачу" value={inputValue} onChange={e => setInputValue(e.target.value)}></textarea>
                     <button onClick={addTask}>+</button>
                 </header>
 
                 <main className="content">
-                    <Block name="Active" item={item} func={setItem()}/>
+                    <Block name="Active" item={item} func={setItem} completeItem={completeItem} funcAdd={setCompleteItem}/>
                     <div className="line"/>
-                    {/*<Complete name="Complete" completeItem={completeItem} func={setCompleteItem()}/>*/}
+                    <Complete name="Complete" completeItem={completeItem} />
                 </main>
 
             </div>
