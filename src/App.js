@@ -5,6 +5,7 @@ import Modal from "./block/modal";
 
 function App() {
     const [modalActive, setModalActive] = useState(false);
+    const [id, setId] = useState(11)
     const [task, setTask] = useState('');
     const [boards, setBoards] = useState([
         {id: 1, title: "ToDo", items: [{id: 1, title: '1'}, {id: 2, title: '2'}]},
@@ -76,7 +77,13 @@ function App() {
             </header>
 
             <main className="content">
-                <Modal active={modalActive}/>
+                <Modal active={modalActive}
+                       setModalActive={setModalActive}
+                       boards={boards}
+                       setBoards={setBoards}
+                       id={id}
+                       setId={setId}
+                />
                 {boards.map(board =>
                 <div className="board"
                      onDrop={(e)=> EmptyBoard(e, board)}
@@ -84,8 +91,7 @@ function App() {
                 >
                     <div className="board__title">{board.title}</div>
                     {board.items.map(item =>
-                        <div
-                            className="item"
+                        <div className="item"
                             onDragLeave={(e) => onDragleaveHandler(e)}
                             onDragStart={(e) => onDragStartHandler(e, board, item)}
                             onDragEnd={(e) => onDragEndHandler(e)}
