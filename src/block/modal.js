@@ -1,19 +1,18 @@
 import React from "react";
 import styles from './modal.module.css'
+import {useDispatch} from "react-redux";
 
 export default function Modal(props){
+    const dispatch = useDispatch()
+    const addTask = (task) => {
+        dispatch({type:'ADD_TASK', payload: `${task}`, id: `${props.currentBoard}`})
+    }
+
     const onEnterPress = (e) => {
         if (e.key === 'Enter'){
-            let copy = [...props.boards]
-            copy[0].items.push({id: props.id, title: e.target.value});
-            props.setBoards(e => {
-                if (e.id === copy.id){
-                    return copy
-                }
-                return e
-            })
-            props.setId(props.id + 1)
-            e.target.value = null;
+            addTask(e.target.value)
+            props.setModalActive(false)
+            e.target.value = ''
         }
     }
 

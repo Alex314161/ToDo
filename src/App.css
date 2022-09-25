@@ -8,9 +8,9 @@
     display: flex;
     flex-direction: column;
     min-width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    height: max-content;
     margin: 0 auto;
-    border: 1px solid black;
 }
 
 .taskArea {
@@ -19,36 +19,59 @@
     padding: 0 35px;
     width: 100%;
     height: 100px;
-    background-color: #093a3e;
+    background-color: rgba(70,61,71,0.06);
+    border: 1px solid gray;
 }
 
 .taskArea button {
     margin-left: 10%;
-    width: 30px;
+    width: 200px;
+    min-width: 30px;
     height: 30px;
-    background-color: #ffd772;
+    background-color: black;
+    color: white;
     border: none;
+    border-radius: 15px;
 }
 
 .content{
     display: flex;
-    height: 100%;
-    background-color: #093a3e;
+    flex-wrap: wrap;
+    min-height: calc(100vh - 100px);
+    height: max-content;
     padding-top: 1%;
 }
 
 .board {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 300px;
-    min-height: 300px;
+    min-height: 450px;
     height: max-content;
-    margin: 0 10px;
+    margin: 50px 10px;
     padding: 0 10px;
     border: 1px solid gray;
     border-radius: 15px;
-    background-color: #ffd772;
+    background-color: rgba(70,61,71,0.06);
 }
+
+.board button {
+    position: absolute;
+    bottom: 5px;
+    left: 30%;
+    background: none;
+    border: none;
+}
+
+.board button:hover {
+    transform: scale(1.1);
+}
+
+.board button:active{
+    transform: scale(0.9);
+}
+
 
 .board__title {
     text-align: center;
@@ -58,11 +81,11 @@
 
 .item {
     width: 100%;
-    background-color: #ede9e3;
     font-size: 1.2em;
     margin: 2% auto;
-    color: #001011;
     text-align: center;
+    border: 1px solid gray;
+    border-radius: 15px;
 }
 
 .item::before {
