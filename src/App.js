@@ -5,7 +5,6 @@ import Modal from "./block/modal";
 
 function App() {
     const [modalActive, setModalActive] = useState(false);
-    const [task, setTask] = useState('');
     const [boards, setBoards] = useState([
         {id: 1, title: "ToDo", items: [{id: 1, title: '1'}, {id: 2, title: '2'}]},
         {id: 2, title: "Research", items: [{id: 3, title: '3'}, {id: 4, title: '4'}]},
